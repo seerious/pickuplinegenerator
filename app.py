@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 import random
+import os
 
 app = Flask(__name__)
 
@@ -116,4 +117,4 @@ def generate():
     return jsonify({'line': line})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
